@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, FileCheck, CheckCircle2, HelpCircle } from "lucide-react";
+import { ArrowRight, FileCheck, CheckCircle2, HelpCircle, TrendingUp, Calculator, ClipboardCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout";
 import {
@@ -9,29 +9,38 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const benefits = [
-  "Verificação completa do histórico contributivo (CNIS)",
-  "Identificação de períodos não registrados ou com inconsistências",
-  "Análise de vínculos empregatícios e contribuições",
-  "Orientação sobre documentos necessários para regularização",
-  "Parecer sobre possíveis direitos e caminhos a seguir",
+const deliverables = [
+  "Estudo técnico do seu histórico contributivo",
+  "Conferência detalhada do CNIS",
+  "Identificação de períodos especiais ou vínculos faltantes",
+  "Análise das regras de transição aplicáveis",
+  "Orientação sobre próximos passos (sem promessas de resultado)",
 ];
 
 const process = [
   {
     step: "1",
-    title: "Envio de documentos",
-    description: "Você envia seu CNIS e documentos de identificação através do formulário seguro.",
+    title: "Triagem inicial",
+    description: "Você responde algumas perguntas para entendermos sua situação.",
+    icon: ClipboardCheck,
   },
   {
     step: "2",
-    title: "Análise técnica",
-    description: "Realizo a verificação detalhada do seu histórico contributivo.",
+    title: "Envio de documentos",
+    description: "Você envia seu CNIS e documentos por canal seguro.",
+    icon: FileCheck,
   },
   {
     step: "3",
-    title: "Parecer orientativo",
-    description: "Você recebe um relatório com os achados e orientações sobre próximos passos.",
+    title: "Análise técnica",
+    description: "Realizamos a verificação detalhada do seu histórico.",
+    icon: Calculator,
+  },
+  {
+    step: "4",
+    title: "Orientação",
+    description: "Você recebe um relatório com achados e próximos passos.",
+    icon: TrendingUp,
   },
 ];
 
@@ -49,181 +58,200 @@ const faqItems = [
     answer: "O prazo para análise depende da complexidade do histórico contributivo. Em geral, o parecer é entregue em até 10 dias úteis após o recebimento de toda a documentação necessária.",
   },
   {
-    question: "A análise garante algum benefício?",
-    answer: "Não. A análise previdenciária é um serviço de orientação que identifica possíveis direitos e caminhos. O resultado depende de diversos fatores que serão explicados no parecer, e nenhum resultado pode ser garantido.",
+    question: "A análise ou o planejamento garantem algum resultado?",
+    answer: "Não. A análise e o planejamento previdenciário são serviços de orientação que identificam possíveis direitos e caminhos. O resultado depende de diversos fatores que serão explicados no parecer, e nenhum resultado pode ser garantido.",
+  },
+  {
+    question: "Quais as regras de transição existentes?",
+    answer: "A Reforma da Previdência (EC 103/2019) criou várias regras de transição: pedágio de 50%, pedágio de 100%, idade progressiva, pontos (idade + tempo), entre outras. A análise verifica qual se aplica ao seu caso.",
   },
 ];
 
 export default function AnalisePrevidenciaria() {
   return (
     <Layout>
-      {/* Header */}
-      <section className="bg-muted/30 py-12 md:py-16">
+      {/* Hero Section */}
+      <section className="hero-gradient hero-pattern py-16 md:py-24">
         <div className="container">
-          <div className="max-w-3xl">
-            <nav className="text-sm text-muted-foreground mb-4" aria-label="Breadcrumb">
+          <div className="max-w-3xl animate-fade-in-up">
+            <nav className="text-sm text-muted-foreground mb-6" aria-label="Breadcrumb">
               <ol className="flex items-center gap-2">
-                <li><Link to="/" className="hover:text-foreground">Início</Link></li>
+                <li><Link to="/" className="hover:text-foreground transition-colors">Início</Link></li>
                 <li>/</li>
-                <li><Link to="/servicos" className="hover:text-foreground">Serviços</Link></li>
+                <li><Link to="/servicos" className="hover:text-foreground transition-colors">Serviços</Link></li>
                 <li>/</li>
-                <li className="text-foreground">Análise Previdenciária</li>
+                <li className="text-foreground">Cálculo Previdenciário</li>
               </ol>
             </nav>
             
-            <div className="flex items-center gap-4 mb-4">
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center">
-                <FileCheck className="h-7 w-7 text-primary" />
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
+                <FileCheck className="h-8 w-8 text-primary" />
               </div>
               <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-semibold text-foreground">
-                Análise Previdenciária
+                Entenda suas rotas de aposentadoria
               </h1>
             </div>
             
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Verificação detalhada do seu histórico contributivo para identificar possíveis 
-              direitos e orientar sobre os próximos passos junto ao INSS.
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
+              Análise e planejamento previdenciário para você entender seu histórico contributivo, 
+              as regras aplicáveis ao seu caso e os caminhos possíveis junto ao INSS.
             </p>
+
+            <Button variant="hero" size="lg" asChild>
+              <Link to="/triagem-calculo">
+                Entender meu caso
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* Content */}
-      <section className="py-12 md:py-16">
+      {/* O que entregamos */}
+      <section className="py-16 md:py-20">
         <div className="container">
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Main Content */}
-            <div className="lg:col-span-2 space-y-8">
-              {/* What includes */}
-              <div className="bg-card rounded-xl border border-border p-6 md:p-8">
-                <h2 className="font-display text-xl md:text-2xl font-semibold text-foreground mb-4">
-                  O que inclui a análise?
-                </h2>
-                <ul className="space-y-3">
-                  {benefits.map((benefit) => (
-                    <li key={benefit} className="flex items-start gap-3 text-foreground">
-                      <CheckCircle2 className="h-5 w-5 text-secondary mt-0.5 flex-shrink-0" />
-                      {benefit}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Process */}
-              <div>
-                <h2 className="font-display text-xl md:text-2xl font-semibold text-foreground mb-4">
-                  Como funciona o processo
-                </h2>
-                <div className="grid sm:grid-cols-3 gap-4">
-                  {process.map((item) => (
-                    <div key={item.step} className="bg-card rounded-xl border border-border p-5">
-                      <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-display font-semibold text-sm mb-3">
-                        {item.step}
-                      </div>
-                      <h3 className="font-display font-semibold text-foreground mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground">
-                        {item.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* FAQ */}
-              <div>
-                <h2 className="font-display text-xl md:text-2xl font-semibold text-foreground mb-4">
-                  Perguntas Frequentes
-                </h2>
-                <Accordion type="single" collapsible className="space-y-2">
-                  {faqItems.map((item, index) => (
-                    <AccordionItem 
-                      key={index} 
-                      value={`item-${index}`}
-                      className="bg-card rounded-lg border border-border px-4"
-                    >
-                      <AccordionTrigger className="text-left font-medium text-foreground hover:no-underline py-4">
-                        <span className="flex items-center gap-2">
-                          <HelpCircle className="h-4 w-4 text-secondary flex-shrink-0" />
-                          {item.question}
-                        </span>
-                      </AccordionTrigger>
-                      <AccordionContent className="text-muted-foreground pb-4">
-                        {item.answer}
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </div>
-
-              {/* Disclaimer */}
-              <div className="disclaimer">
-                Este conteúdo tem caráter informativo. A análise previdenciária não garante resultados, 
-                sendo uma orientação baseada nos documentos fornecidos e na legislação vigente.
-              </div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-6">
+                O que você recebe
+              </h2>
+              <ul className="space-y-4">
+                {deliverables.map((item) => (
+                  <li key={item} className="flex items-start gap-3 text-foreground">
+                    <CheckCircle2 className="h-5 w-5 text-secondary mt-0.5 flex-shrink-0" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <p className="text-sm text-muted-foreground mt-6 italic">
+                Cada situação é única. A análise identifica possibilidades, não garante resultados.
+              </p>
             </div>
 
-            {/* Sidebar */}
-            <div className="lg:col-span-1">
-              <div className="sticky top-24 space-y-4">
-                {/* CTA Card */}
-                <div className="bg-primary text-primary-foreground rounded-xl p-6">
-                  <h3 className="font-display text-lg font-semibold mb-3">
-                    Solicite sua análise
-                  </h3>
-                  <p className="text-primary-foreground/80 text-sm mb-4">
-                    Envie seus documentos para uma análise detalhada do seu histórico contributivo.
-                  </p>
-                  <Button 
-                    variant="secondary" 
-                    className="w-full"
-                    asChild
-                  >
-                    <Link to="/triagem-calculo">
-                      Iniciar análise
-                      <ArrowRight className="h-4 w-4" />
-                    </Link>
-                  </Button>
-                </div>
-
-                {/* Documents Card */}
-                <div className="bg-card rounded-xl border border-border p-6">
-                  <h3 className="font-display text-lg font-semibold text-foreground mb-3">
-                    Documentos necessários
-                  </h3>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li>• Documento de identificação (RG ou CNH)</li>
-                    <li>• CPF</li>
-                    <li>• CNIS atualizado (extrato detalhado)</li>
-                    <li>• Carteira de trabalho (se disponível)</li>
-                  </ul>
-                </div>
-
-                {/* Other Services */}
-                <div className="bg-muted/50 rounded-xl p-6">
-                  <h3 className="font-display text-base font-semibold text-foreground mb-3">
-                    Outros serviços
-                  </h3>
-                  <ul className="space-y-2">
-                    <li>
-                      <Link to="/planejamento-previdenciario" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                        → Planejamento Previdenciário
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/bpc-loas" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                        → Orientação BPC/LOAS
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
+            <div className="bg-card rounded-2xl border border-border p-8">
+              <h3 className="font-display text-lg font-semibold text-foreground mb-4">
+                Documentos necessários
+              </h3>
+              <ul className="space-y-3 text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary">•</span>
+                  Documento de identificação (RG ou CNH)
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary">•</span>
+                  CPF
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary">•</span>
+                  <strong>CNIS atualizado (extrato detalhado)</strong>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary">•</span>
+                  Carteira de trabalho (se disponível)
+                </li>
+              </ul>
+              <div className="mt-6 p-4 bg-accent/50 rounded-lg">
+                <p className="text-sm text-muted-foreground">
+                  <strong className="text-foreground">Como obter o CNIS:</strong> Acesse o Meu INSS pelo site 
+                  gov.br/meuinss ou pelo aplicativo, faça login e clique em "Extrato de Contribuição (CNIS)".
+                </p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Como funciona */}
+      <section className="py-16 md:py-20 bg-muted/30">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-4">
+              Como funciona o processo
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Etapas claras para você entender seu histórico previdenciário.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {process.map((item) => (
+              <div 
+                key={item.step} 
+                className="bg-card rounded-xl border border-border p-6 card-hover text-center"
+              >
+                <div className="w-12 h-12 rounded-xl bg-primary text-primary-foreground flex items-center justify-center font-display font-semibold text-lg mx-auto mb-4">
+                  {item.step}
+                </div>
+                <item.icon className="h-6 w-6 text-secondary mx-auto mb-3" />
+                <h3 className="font-display font-semibold text-foreground mb-2 text-sm">
+                  {item.title}
+                </h3>
+                <p className="text-xs text-muted-foreground">
+                  {item.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16 md:py-20">
+        <div className="container">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-8 text-center">
+              Perguntas Frequentes
+            </h2>
+
+            <Accordion type="single" collapsible className="space-y-3">
+              {faqItems.map((item, index) => (
+                <AccordionItem 
+                  key={index} 
+                  value={`item-${index}`}
+                  className="bg-card rounded-lg border border-border px-5"
+                >
+                  <AccordionTrigger className="text-left font-medium text-foreground hover:no-underline py-4">
+                    <span className="flex items-center gap-3">
+                      <HelpCircle className="h-5 w-5 text-secondary flex-shrink-0" />
+                      {item.question}
+                    </span>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground pb-4 pl-8">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+
+            {/* Disclaimer */}
+            <div className="disclaimer mt-8">
+              Conteúdo informativo; não substitui consulta jurídica. A análise previdenciária 
+              não garante resultados. Cada caso possui particularidades que devem ser analisadas individualmente.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Final */}
+      <section className="py-16 md:py-20 bg-primary text-primary-foreground">
+        <div className="container">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="font-display text-2xl md:text-3xl font-semibold mb-4">
+              Entenda sua situação previdenciária
+            </h2>
+            <p className="text-primary-foreground/80 mb-8">
+              Faça uma triagem inicial e receba orientação sobre seu caso.
+            </p>
+            <Button variant="secondary" size="lg" asChild>
+              <Link to="/triagem-calculo">
+                Entender meu caso
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
     </Layout>
   );
 }
-
