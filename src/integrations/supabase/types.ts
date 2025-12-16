@@ -14,7 +14,177 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      triagem_bpc_loas: {
+        Row: {
+          cadastro_unico: string
+          consentimento_lgpd: boolean
+          consentimento_lgpd_data: string | null
+          created_at: string
+          disponibilidade: string | null
+          email: string
+          id: string
+          ip_address: string | null
+          municipio: string
+          nis: string | null
+          nome_completo: string
+          perfil: string
+          prioridade: string
+          renda_per_capita: string
+          score_cadunico: number
+          score_documentos: number
+          score_perfil: number
+          score_renda: number
+          score_total: number
+          tentou_antes: string | null
+          uf: string
+          updated_at: string
+          upload_laudo_medico: boolean | null
+          upload_rg_cpf: boolean | null
+          user_agent: string | null
+          whatsapp: string
+        }
+        Insert: {
+          cadastro_unico: string
+          consentimento_lgpd?: boolean
+          consentimento_lgpd_data?: string | null
+          created_at?: string
+          disponibilidade?: string | null
+          email: string
+          id?: string
+          ip_address?: string | null
+          municipio: string
+          nis?: string | null
+          nome_completo: string
+          perfil: string
+          prioridade?: string
+          renda_per_capita: string
+          score_cadunico?: number
+          score_documentos?: number
+          score_perfil?: number
+          score_renda?: number
+          score_total?: number
+          tentou_antes?: string | null
+          uf: string
+          updated_at?: string
+          upload_laudo_medico?: boolean | null
+          upload_rg_cpf?: boolean | null
+          user_agent?: string | null
+          whatsapp: string
+        }
+        Update: {
+          cadastro_unico?: string
+          consentimento_lgpd?: boolean
+          consentimento_lgpd_data?: string | null
+          created_at?: string
+          disponibilidade?: string | null
+          email?: string
+          id?: string
+          ip_address?: string | null
+          municipio?: string
+          nis?: string | null
+          nome_completo?: string
+          perfil?: string
+          prioridade?: string
+          renda_per_capita?: string
+          score_cadunico?: number
+          score_documentos?: number
+          score_perfil?: number
+          score_renda?: number
+          score_total?: number
+          tentou_antes?: string | null
+          uf?: string
+          updated_at?: string
+          upload_laudo_medico?: boolean | null
+          upload_rg_cpf?: boolean | null
+          user_agent?: string | null
+          whatsapp?: string
+        }
+        Relationships: []
+      }
+      triagem_calculo: {
+        Row: {
+          consentimento_lgpd: boolean
+          consentimento_lgpd_data: string | null
+          created_at: string
+          email: string
+          id: string
+          ip_address: string | null
+          nome_completo: string
+          objetivo: string | null
+          possui_cnis: string
+          prioridade: string
+          regimes: string[]
+          score_cnis: number
+          score_documentos: number
+          score_especial: number
+          score_regime: number
+          score_tempo: number
+          score_total: number
+          tempo_contribuicao: string
+          tentou_meu_inss: string | null
+          trabalho_especial: string
+          updated_at: string
+          upload_cnis: boolean | null
+          upload_rg_cpf: boolean | null
+          user_agent: string | null
+          whatsapp: string
+        }
+        Insert: {
+          consentimento_lgpd?: boolean
+          consentimento_lgpd_data?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          ip_address?: string | null
+          nome_completo: string
+          objetivo?: string | null
+          possui_cnis: string
+          prioridade?: string
+          regimes?: string[]
+          score_cnis?: number
+          score_documentos?: number
+          score_especial?: number
+          score_regime?: number
+          score_tempo?: number
+          score_total?: number
+          tempo_contribuicao: string
+          tentou_meu_inss?: string | null
+          trabalho_especial: string
+          updated_at?: string
+          upload_cnis?: boolean | null
+          upload_rg_cpf?: boolean | null
+          user_agent?: string | null
+          whatsapp: string
+        }
+        Update: {
+          consentimento_lgpd?: boolean
+          consentimento_lgpd_data?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          ip_address?: string | null
+          nome_completo?: string
+          objetivo?: string | null
+          possui_cnis?: string
+          prioridade?: string
+          regimes?: string[]
+          score_cnis?: number
+          score_documentos?: number
+          score_especial?: number
+          score_regime?: number
+          score_tempo?: number
+          score_total?: number
+          tempo_contribuicao?: string
+          tentou_meu_inss?: string | null
+          trabalho_especial?: string
+          updated_at?: string
+          upload_cnis?: boolean | null
+          upload_rg_cpf?: boolean | null
+          user_agent?: string | null
+          whatsapp?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
