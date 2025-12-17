@@ -169,9 +169,22 @@ export default function TriagemCalculo() {
 
       if (error) throw error;
 
+      // Send confirmation email (non-blocking)
+      supabase.functions.invoke("send-triagem-confirmation", {
+        body: {
+          tipo: "calculo",
+          nome: formData.nomeCompleto.trim(),
+          email: formData.email.trim().toLowerCase(),
+        },
+      }).then(({ error: emailError }) => {
+        if (emailError) {
+          console.error("Error sending confirmation email:", emailError);
+        }
+      });
+
       toast({
         title: "Triagem enviada!",
-        description: "Recebemos sua solicitação. Entraremos em contato em breve.",
+        description: "Recebemos sua solicitação. Enviamos um e-mail de confirmação.",
       });
 
       // Track conversion

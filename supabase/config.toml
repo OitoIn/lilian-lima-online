@@ -1,1 +1,4 @@
 project_id = "eqkpbrzjbbyfradugnjn"
+
+[functions.send-triagem-confirmation]
+verify_jwt = false
