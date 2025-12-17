@@ -114,27 +114,27 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="https://wa.me/5500000000000"
+                  href="https://wa.me/5511932059108"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm opacity-80 hover:opacity-100 transition-opacity"
                 >
                   <MessageCircle className="h-4 w-4 flex-shrink-0" />
-                  <span>WhatsApp</span>
+                  <span>(11) 93205-9108</span>
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:contato@lilianlima.adv.br"
+                  href="mailto:lilianlima.sociedade@gmail.com"
                   className="flex items-center gap-2 text-sm opacity-80 hover:opacity-100 transition-opacity"
                 >
                   <Mail className="h-4 w-4 flex-shrink-0" />
-                  <span>contato@lilianlima.adv.br</span>
+                  <span>lilianlima.sociedade@gmail.com</span>
                 </a>
               </li>
               <li className="flex items-start gap-2 text-sm opacity-80">
                 <MapPin className="h-4 w-4 flex-shrink-0 mt-0.5" />
-                <span>Atendimento 100% Online<br />em todo o Brasil</span>
+                <span>Rua Lutécia, 429 - Sala 4<br />Vila Carrão - São Paulo/SP</span>
               </li>
             </ul>
             
@@ -153,9 +153,9 @@ export function Footer() {
         <div className="container py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="text-xs opacity-70 text-center md:text-left">
-              <p>© {currentYear} Lilian Lima Advocacia. Todos os direitos reservados.</p>
+              <p>© {currentYear} Lilian Lima Sociedade Individual de Advocacia. CNPJ 60.878.479/0001-95</p>
               <p className="mt-1">
-                OAB/XX nº 000.000 | Advogada Responsável: Dra. Lilian Lima
+                OAB/SP 425.650 | Responsável: Lilian Scigliano de Lima
               </p>
             </div>
             <div className="flex gap-4">

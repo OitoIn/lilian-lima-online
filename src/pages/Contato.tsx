@@ -8,16 +8,16 @@ const contactMethods = [
     icon: MessageCircle,
     title: "WhatsApp",
     description: "Resposta mais rápida em horário comercial",
-    value: "(00) 00000-0000",
-    href: "https://wa.me/5500000000000",
+    value: "(11) 93205-9108",
+    href: "https://wa.me/5511932059108",
     cta: "Iniciar conversa",
   },
   {
     icon: Mail,
     title: "E-mail",
     description: "Para mensagens mais detalhadas",
-    value: "contato@lilianlima.adv.br",
-    href: "mailto:contato@lilianlima.adv.br",
+    value: "lilianlima.sociedade@gmail.com",
+    href: "mailto:lilianlima.sociedade@gmail.com",
     cta: "Enviar e-mail",
   },
 ];
@@ -172,13 +172,16 @@ export default function Contato() {
                   <div className="flex items-center gap-3 mb-4">
                     <MapPin className="h-5 w-5 text-primary" />
                     <h3 className="font-display text-lg font-semibold text-foreground">
-                      Atendimento
+                      Endereço
                     </h3>
                   </div>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-3">
+                    Rua Lutécia, 429 - Sala 4<br />
+                    Vila Carrão - São Paulo/SP<br />
+                    CEP: 03423-000
+                  </p>
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    Atendimento 100% online, para sua comodidade. 
-                    Atendemos clientes em todo o território nacional através de 
-                    videochamada e plataformas digitais.
+                    Atendimento presencial e online para todo o Brasil.
                   </p>
                 </div>
 
