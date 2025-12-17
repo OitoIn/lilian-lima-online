@@ -176,6 +176,18 @@ export function Footer() {
             Este site tem caráter meramente informativo e não constitui publicidade ou captação de clientela. 
             As informações aqui disponibilizadas não substituem a consulta jurídica individualizada.
           </p>
+          
+          <p className="mt-4 text-2xs opacity-50 text-center md:text-right">
+            Desenvolvido por{" "}
+            <a 
+              href="https://oito.com.br" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:opacity-80 transition-opacity underline"
+            >
+              OitoIn
+            </a>
+          </p>
         </div>
       </div>
     </footer>
