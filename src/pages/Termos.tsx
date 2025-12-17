@@ -110,8 +110,13 @@ export default function Termos() {
               <div>
                 <h2 className="font-display text-xl font-semibold mb-3">10. Contato</h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  Para dúvidas sobre estes Termos de Uso, entre em contato pelo e-mail: 
-                  contato@lilianlima.adv.br
+                  Para dúvidas sobre estes Termos de Uso, entre em contato:
+                </p>
+                <p className="text-muted-foreground mt-2">
+                  <strong>Razão Social:</strong> Lilian Lima Sociedade Individual de Advocacia<br />
+                  <strong>CNPJ:</strong> 60.878.479/0001-95<br />
+                  <strong>E-mail:</strong> lilianlima.sociedade@gmail.com<br />
+                  <strong>Responsável:</strong> Lilian Scigliano de Lima - OAB/SP 425.650
                 </p>
               </div>
             </div>

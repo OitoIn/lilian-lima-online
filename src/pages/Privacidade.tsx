@@ -121,8 +121,10 @@ export default function Privacidade() {
                   Para exercer seus direitos ou esclarecer dúvidas sobre esta política, entre em contato:
                 </p>
                 <p className="text-muted-foreground mt-2">
-                  <strong>E-mail:</strong> privacidade@lilianlima.adv.br<br />
-                  <strong>WhatsApp:</strong> (00) 00000-0000
+                  <strong>Controladora:</strong> Lilian Lima Sociedade Individual de Advocacia<br />
+                  <strong>CNPJ:</strong> 60.878.479/0001-95<br />
+                  <strong>E-mail:</strong> lilian_scigliano@hotmail.com<br />
+                  <strong>WhatsApp:</strong> (11) 98834-4100
                 </p>
               </div>
             </div>

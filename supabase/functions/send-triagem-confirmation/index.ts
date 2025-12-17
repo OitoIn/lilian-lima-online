@@ -64,6 +64,11 @@ const handler = async (req: Request): Promise<Response> => {
           
           <div style="background-color: #f0f0ec; padding: 16px 24px; text-align: center; font-size: 12px; color: #666;">
             <p style="margin: 0;">
+              <strong>Lilian Lima Sociedade Individual de Advocacia</strong><br>
+              OAB/SP 425.650 | CNPJ 60.878.479/0001-95<br>
+              WhatsApp: (11) 93205-9108 | lilianlima.sociedade@gmail.com
+            </p>
+            <p style="margin: 8px 0;">
               Este e-mail é uma confirmação automática. Seus dados são tratados conforme nossa 
               <a href="https://lilianlima.adv.br/privacidade" style="color: #5e6839;">Política de Privacidade</a>.
             </p>
@@ -107,6 +112,11 @@ const handler = async (req: Request): Promise<Response> => {
           
           <div style="background-color: #f0f0ec; padding: 16px 24px; text-align: center; font-size: 12px; color: #666;">
             <p style="margin: 0;">
+              <strong>Lilian Lima Sociedade Individual de Advocacia</strong><br>
+              OAB/SP 425.650 | CNPJ 60.878.479/0001-95<br>
+              WhatsApp: (11) 93205-9108 | lilianlima.sociedade@gmail.com
+            </p>
+            <p style="margin: 8px 0;">
               Este e-mail é uma confirmação automática. Seus dados são tratados conforme nossa 
               <a href="https://lilianlima.adv.br/privacidade" style="color: #5e6839;">Política de Privacidade</a>.
             </p>
