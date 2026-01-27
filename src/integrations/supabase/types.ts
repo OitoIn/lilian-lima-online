@@ -185,6 +185,114 @@ export type Database = {
         }
         Relationships: []
       }
+      triagem_recurso: {
+        Row: {
+          consentimento_lgpd: boolean
+          consentimento_lgpd_data: string | null
+          created_at: string
+          data_indeferimento: string
+          descricao_caso: string | null
+          email: string
+          fbclid: string | null
+          fez_recurso: string
+          gclid: string | null
+          id: string
+          ip_address: string | null
+          nome_completo: string
+          novos_documentos: string
+          prioridade: string
+          recebeu_carta_exigencias: string
+          score_carta_exigencias: number
+          score_data_indeferimento: number
+          score_documento_indeferimento: number
+          score_fez_recurso: number
+          score_novos_documentos: number
+          score_tipo_pedido: number
+          score_total: number
+          tipo_pedido: string
+          ttclid: string | null
+          updated_at: string
+          upload_cnis: boolean | null
+          upload_indeferimento: boolean | null
+          upload_laudos: boolean | null
+          user_agent: string | null
+          utm_campaign: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          whatsapp: string
+        }
+        Insert: {
+          consentimento_lgpd?: boolean
+          consentimento_lgpd_data?: string | null
+          created_at?: string
+          data_indeferimento: string
+          descricao_caso?: string | null
+          email: string
+          fbclid?: string | null
+          fez_recurso: string
+          gclid?: string | null
+          id?: string
+          ip_address?: string | null
+          nome_completo: string
+          novos_documentos: string
+          prioridade?: string
+          recebeu_carta_exigencias: string
+          score_carta_exigencias?: number
+          score_data_indeferimento?: number
+          score_documento_indeferimento?: number
+          score_fez_recurso?: number
+          score_novos_documentos?: number
+          score_tipo_pedido?: number
+          score_total?: number
+          tipo_pedido: string
+          ttclid?: string | null
+          updated_at?: string
+          upload_cnis?: boolean | null
+          upload_indeferimento?: boolean | null
+          upload_laudos?: boolean | null
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          whatsapp: string
+        }
+        Update: {
+          consentimento_lgpd?: boolean
+          consentimento_lgpd_data?: string | null
+          created_at?: string
+          data_indeferimento?: string
+          descricao_caso?: string | null
+          email?: string
+          fbclid?: string | null
+          fez_recurso?: string
+          gclid?: string | null
+          id?: string
+          ip_address?: string | null
+          nome_completo?: string
+          novos_documentos?: string
+          prioridade?: string
+          recebeu_carta_exigencias?: string
+          score_carta_exigencias?: number
+          score_data_indeferimento?: number
+          score_documento_indeferimento?: number
+          score_fez_recurso?: number
+          score_novos_documentos?: number
+          score_tipo_pedido?: number
+          score_total?: number
+          tipo_pedido?: string
+          ttclid?: string | null
+          updated_at?: string
+          upload_cnis?: boolean | null
+          upload_indeferimento?: boolean | null
+          upload_laudos?: boolean | null
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          whatsapp?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

@@ -99,3 +99,101 @@ export function calculateCalculoScore(data: CalculoScoreData) {
     prioridade,
   };
 }
+
+// Scoring interno para triagem Recurso/Indeferimento INSS (0-100)
+export interface RecursoScoreData {
+  tipoPedido: string;
+  dataIndeferimento: string; // MM/YYYY format
+  recebeuCartaExigencias: string;
+  fezRecurso: string;
+  novosDocumentos: string;
+  uploadIndeferimento: boolean;
+  uploadCnis: boolean;
+  uploadLaudos: boolean;
+}
+
+export function calculateRecursoScore(data: RecursoScoreData) {
+  let scoreDocumentoIndeferimento = 0;
+  let scoreNovosDocumentos = 0;
+  let scoreCartaExigencias = 0;
+  let scoreFezRecurso = 0;
+  let scoreTipoPedido = 0;
+  let scoreDataIndeferimento = 0;
+
+  // Documento de indeferimento anexado: +30
+  if (data.uploadIndeferimento) scoreDocumentoIndeferimento = 30;
+
+  // Novos laudos/documentos: Sim +20 | Em andamento +10
+  if (data.novosDocumentos === "sim") scoreNovosDocumentos = 20;
+  else if (data.novosDocumentos === "em_andamento") scoreNovosDocumentos = 10;
+
+  // Carta de Exigências recebida: Sim +10
+  if (data.recebeuCartaExigencias === "sim") scoreCartaExigencias = 10;
+
+  // Fez recurso?: "Ainda não" +10 (oportunidade) | "Já recorri" +5
+  if (data.fezRecurso === "ainda_nao") scoreFezRecurso = 10;
+  else if (data.fezRecurso === "ja_recorri") scoreFezRecurso = 5;
+
+  // Tipo: Benefício por Incapacidade +10 | Aposentadoria +10 | BPC/LOAS +10 | Outros +5
+  if (["beneficio_incapacidade", "aposentadoria", "bpc_loas"].includes(data.tipoPedido)) {
+    scoreTipoPedido = 10;
+  } else if (data.tipoPedido) {
+    scoreTipoPedido = 5;
+  }
+
+  // Data do indeferimento: ≤ 6 meses +10 | > 6 meses +5
+  if (data.dataIndeferimento) {
+    const mesesDesdeIndeferimento = calculateMonthsSince(data.dataIndeferimento);
+    if (mesesDesdeIndeferimento !== null) {
+      if (mesesDesdeIndeferimento <= 6) scoreDataIndeferimento = 10;
+      else scoreDataIndeferimento = 5;
+    }
+  }
+
+  const scoreTotal = 
+    scoreDocumentoIndeferimento + 
+    scoreNovosDocumentos + 
+    scoreCartaExigencias + 
+    scoreFezRecurso + 
+    scoreTipoPedido + 
+    scoreDataIndeferimento;
+
+  // Roteamento: ≥65 → "Alta prioridade"; 45–64 → "Analisar"; <45 → "Nutrir"
+  let prioridade: "alta" | "analisar" | "nutrir" = "nutrir";
+  if (scoreTotal >= 65) prioridade = "alta";
+  else if (scoreTotal >= 45) prioridade = "analisar";
+
+  return {
+    scoreTotal,
+    scoreDocumentoIndeferimento,
+    scoreNovosDocumentos,
+    scoreCartaExigencias,
+    scoreFezRecurso,
+    scoreTipoPedido,
+    scoreDataIndeferimento,
+    prioridade,
+  };
+}
+
+// Helper: Calculate months since a date in MM/YYYY format
+function calculateMonthsSince(dateStr: string): number | null {
+  try {
+    const parts = dateStr.split("/");
+    if (parts.length !== 2) return null;
+    
+    const month = parseInt(parts[0], 10);
+    const year = parseInt(parts[1], 10);
+    
+    if (isNaN(month) || isNaN(year) || month < 1 || month > 12) return null;
+    
+    const inputDate = new Date(year, month - 1);
+    const now = new Date();
+    
+    const months = (now.getFullYear() - inputDate.getFullYear()) * 12 + 
+                   (now.getMonth() - inputDate.getMonth());
+    
+    return Math.max(0, months);
+  } catch {
+    return null;
+  }
+}
