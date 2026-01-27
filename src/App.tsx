@@ -18,6 +18,7 @@ import Termos from "./pages/Termos";
 import Acessibilidade from "./pages/Acessibilidade";
 import TriagemBpcLoas from "./pages/TriagemBpcLoas";
 import TriagemCalculo from "./pages/TriagemCalculo";
+import RecursoIndeferimento from "./pages/RecursoIndeferimento";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,6 +38,9 @@ const App = () => (
           <Route path="/bpc-loas" element={<BpcLoas />} />
           <Route path="/analise-previdenciaria" element={<AnalisePrevidenciaria />} />
           <Route path="/planejamento-previdenciario" element={<PlanejamentoPrevidenciario />} />
+          
+          {/* Landing Pages */}
+          <Route path="/recurso-indeferimento" element={<RecursoIndeferimento />} />
           
           {/* Institutional */}
           <Route path="/sobre" element={<Sobre />} />
