@@ -1,5 +1,9 @@
 import type { Config } from "tailwindcss";
 
+// Golden Ratio (φ) constants
+const PHI = 1.61803398875;
+const PHI_INV = 0.61803398875;
+
 export default {
   darkMode: ["class"],
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
@@ -7,7 +11,7 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "1.5rem",
+      padding: "1.618rem",
       screens: {
         sm: "640px",
         md: "768px",
@@ -79,8 +83,38 @@ export default {
         body: ['Lora', 'Georgia', '"Times New Roman"', 'serif'],
         sans: ['Lora', 'Georgia', 'serif'],
       },
+      // Golden Ratio Typography Scale (φ = 1.618)
       fontSize: {
+        'phi-xs': ['0.618rem', { lineHeight: '1.5' }],
+        'phi-sm': ['0.786rem', { lineHeight: '1.5' }],
+        'phi-base': ['1rem', { lineHeight: '1.55' }],
+        'phi-md': ['1.272rem', { lineHeight: '1.5' }],
+        'phi-lg': ['1.618rem', { lineHeight: '1.25' }],
+        'phi-xl': ['2.058rem', { lineHeight: '1.25' }],
+        'phi-2xl': ['2.618rem', { lineHeight: '1.25' }],
+        'phi-3xl': ['4.236rem', { lineHeight: '1.15' }],
         '2xs': ['0.65rem', { lineHeight: '1rem' }],
+      },
+      // Golden Ratio Spacing Scale
+      spacing: {
+        'phi-1': '0.618rem',
+        'phi-2': '1rem',
+        'phi-3': '1.618rem',
+        'phi-4': '2.618rem',
+        'phi-5': '4.236rem',
+        'phi-6': '6.854rem',
+        '18': '4.5rem',
+        '88': '22rem',
+        '112': '28rem',
+        '128': '32rem',
+      },
+      // Golden Ratio based gaps
+      gap: {
+        'phi-1': '0.618rem',
+        'phi-2': '1rem',
+        'phi-3': '1.618rem',
+        'phi-4': '2.618rem',
+        'phi-5': '4.236rem',
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -91,6 +125,16 @@ export default {
         'soft': 'var(--shadow-soft)',
         'card': 'var(--shadow-card)',
         'elevated': 'var(--shadow-elevated)',
+      },
+      // Golden Ratio Aspect Ratios
+      aspectRatio: {
+        'phi': '1.618 / 1',
+        'phi-portrait': '1 / 1.618',
+      },
+      // Grid template columns with φ
+      gridTemplateColumns: {
+        'phi': '0.618fr 0.382fr',
+        'phi-reverse': '0.382fr 0.618fr',
       },
       keyframes: {
         "accordion-down": {
@@ -120,12 +164,6 @@ export default {
         "fade-in": "fade-in 0.5s ease-out forwards",
         "fade-in-up": "fade-in-up 0.6s ease-out forwards",
         "slide-in-right": "slide-in-right 0.5s ease-out forwards",
-      },
-      spacing: {
-        '18': '4.5rem',
-        '88': '22rem',
-        '112': '28rem',
-        '128': '32rem',
       },
     },
   },

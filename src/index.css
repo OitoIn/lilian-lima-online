@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 /* LILIAN LIMA ADVOCACIA - Design System
+   Golden Ratio (φ = 1.618) Based Design
    Paleta: #5e6839 (primary), #acba8f (secondary)
    Tom: Acolhedor, didático, profissional
 */
@@ -11,6 +12,40 @@
 
 @layer base {
   :root {
+    /* ═══════════════════════════════════════════════════════════
+       GOLDEN RATIO (φ) DESIGN SYSTEM
+       φ = 1.61803398875 | 1/φ = 0.618
+       ═══════════════════════════════════════════════════════════ */
+    
+    /* Golden Ratio Spacing Scale (base: 1rem = 16px) */
+    --phi: 1.618;
+    --phi-inv: 0.618;
+    --space-1: 0.618rem;   /* ~10px */
+    --space-2: 1rem;       /* 16px (base) */
+    --space-3: 1.618rem;   /* ~26px */
+    --space-4: 2.618rem;   /* ~42px */
+    --space-5: 4.236rem;   /* ~68px */
+    --space-6: 6.854rem;   /* ~110px */
+    
+    /* Golden Ratio Typography Scale (base: 1rem) */
+    --fs-xs: 0.618rem;     /* ~10px */
+    --fs-sm: 0.786rem;     /* ~12.5px (√φ⁻¹) */
+    --fs-base: 1rem;       /* 16px */
+    --fs-md: 1.272rem;     /* ~20px (√φ) */
+    --fs-lg: 1.618rem;     /* ~26px (φ) */
+    --fs-xl: 2.058rem;     /* ~33px (φ×√φ) */
+    --fs-2xl: 2.618rem;    /* ~42px (φ²) */
+    --fs-3xl: 4.236rem;    /* ~68px (φ³) */
+    
+    /* Line Heights (optimized for readability 1.45-1.55) */
+    --lh-tight: 1.25;
+    --lh-base: 1.5;
+    --lh-relaxed: 1.55;
+    
+    /* Golden Ratio Layout */
+    --phi-major: 61.8%;
+    --phi-minor: 38.2%;
+    
     /* Brand Colors - Olive Green Palette */
     --primary: 71 32% 30%;
     --primary-foreground: 60 20% 98%;
@@ -124,11 +159,41 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Lora', Georgia, 'Times New Roman', serif;
+    font-size: var(--fs-base);
+    line-height: var(--lh-base);
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  /* Typography Scale (φ based) */
+  h1 {
     font-family: 'Playfair Display', Georgia, serif;
+    font-size: var(--fs-2xl);
+    line-height: var(--lh-tight);
+    @apply font-semibold tracking-tight;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: var(--fs-lg);
+    line-height: var(--lh-tight);
+    @apply font-semibold tracking-tight;
+  }
+
+  h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: var(--fs-md);
+    line-height: var(--lh-base);
     @apply font-medium tracking-tight;
+  }
+
+  h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: var(--fs-base);
+    line-height: var(--lh-base);
+    @apply font-medium tracking-tight;
+  }
+
+  p {
+    line-height: var(--lh-relaxed);
   }
 
   /* Focus states for accessibility */
@@ -143,6 +208,28 @@
 }
 
 @layer components {
+  /* Golden Ratio Grid Layout */
+  .phi-grid {
+    display: grid;
+    grid-template-columns: var(--phi-major) var(--phi-minor);
+    gap: var(--space-3);
+  }
+
+  .phi-grid-reverse {
+    display: grid;
+    grid-template-columns: var(--phi-minor) var(--phi-major);
+    gap: var(--space-3);
+  }
+
+  /* Golden Ratio Aspect Ratios */
+  .aspect-phi {
+    aspect-ratio: 1.618 / 1;
+  }
+
+  .aspect-phi-portrait {
+    aspect-ratio: 1 / 1.618;
+  }
+
   /* Hero Section Styles */
   .hero-gradient {
     background: linear-gradient(
@@ -190,11 +277,55 @@
 
   /* Disclaimer box */
   .disclaimer {
-    @apply text-xs text-muted-foreground italic bg-muted/50 px-4 py-2 rounded border-l-2 border-secondary;
+    font-size: var(--fs-sm);
+    @apply text-muted-foreground italic bg-muted/50 rounded border-l-2 border-secondary;
+    padding: var(--space-1) var(--space-2);
+  }
+
+  /* Golden Ratio Section Spacing */
+  .section-phi {
+    padding-top: var(--space-5);
+    padding-bottom: var(--space-5);
+  }
+
+  @media (min-width: 768px) {
+    .section-phi {
+      padding-top: var(--space-6);
+      padding-bottom: var(--space-6);
+    }
   }
 }
 
 @layer utilities {
+  /* Golden Ratio Spacing Utilities */
+  .gap-phi-1 { gap: var(--space-1); }
+  .gap-phi-2 { gap: var(--space-2); }
+  .gap-phi-3 { gap: var(--space-3); }
+  .gap-phi-4 { gap: var(--space-4); }
+  .gap-phi-5 { gap: var(--space-5); }
+
+  .p-phi-1 { padding: var(--space-1); }
+  .p-phi-2 { padding: var(--space-2); }
+  .p-phi-3 { padding: var(--space-3); }
+  .p-phi-4 { padding: var(--space-4); }
+  .p-phi-5 { padding: var(--space-5); }
+
+  .m-phi-1 { margin: var(--space-1); }
+  .m-phi-2 { margin: var(--space-2); }
+  .m-phi-3 { margin: var(--space-3); }
+  .m-phi-4 { margin: var(--space-4); }
+  .m-phi-5 { margin: var(--space-5); }
+
+  /* Golden Ratio Typography Utilities */
+  .text-phi-xs { font-size: var(--fs-xs); }
+  .text-phi-sm { font-size: var(--fs-sm); }
+  .text-phi-base { font-size: var(--fs-base); }
+  .text-phi-md { font-size: var(--fs-md); }
+  .text-phi-lg { font-size: var(--fs-lg); }
+  .text-phi-xl { font-size: var(--fs-xl); }
+  .text-phi-2xl { font-size: var(--fs-2xl); }
+  .text-phi-3xl { font-size: var(--fs-3xl); }
+
   /* Text balance for better readability */
   .text-balance {
     text-wrap: balance;

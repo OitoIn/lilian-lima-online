@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Shield, Users, FileCheck, Heart, Clock, MapPin, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout";
+import { PhiValidator } from "@/components/PhiValidator";
 
 const services = [
   {
@@ -52,25 +53,31 @@ const trustIndicators = [
 export default function Index() {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative hero-gradient hero-pattern">
-        <div className="container py-16 md:py-24 lg:py-32">
+      {/* Hero Section - φ proportioned */}
+      <section 
+        className="relative hero-gradient hero-pattern"
+        data-test="phi"
+      >
+        <div className="container py-phi-5 md:py-phi-6">
           <div className="max-w-3xl mx-auto text-center animate-fade-in-up">
-            <span className="inline-block px-4 py-1.5 mb-6 text-xs font-medium tracking-wider uppercase bg-secondary/50 text-secondary-foreground rounded-full">
+            <span className="inline-block px-phi-2 py-phi-1 mb-phi-3 text-phi-sm font-medium tracking-wider uppercase bg-secondary/50 text-secondary-foreground rounded-full">
               Direito Previdenciário • BPC/LOAS
             </span>
             
-            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-foreground leading-tight mb-6 text-balance">
+            {/* h1 uses φ² (2.618rem) from CSS */}
+            <h1 className="font-display text-phi-2xl md:text-phi-2xl lg:text-phi-3xl font-semibold text-foreground leading-tight mb-phi-3 text-balance">
               Apoio famílias na busca por seus{" "}
               <span className="text-primary">direitos previdenciários</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-2xl mx-auto">
+            {/* Body text uses φ (1.618rem) */}
+            <p className="text-phi-md md:text-phi-lg text-muted-foreground mb-phi-4 leading-relaxed max-w-2xl mx-auto">
               Ofereço orientação especializada em BPC/LOAS, análise e planejamento previdenciário. 
               Atendimento 100% online, com linguagem clara e acolhimento em cada etapa.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            {/* CTA buttons with φ spacing */}
+            <div className="flex flex-col sm:flex-row gap-phi-2 justify-center">
               <Button variant="hero" size="xl" asChild>
                 <Link to="/triagem-bpc-loas">
                   Iniciar Triagem BPC/LOAS
@@ -84,25 +91,30 @@ export default function Index() {
               </Button>
             </div>
 
-            {/* Disclaimer */}
-            <p className="disclaimer mt-8 max-w-xl mx-auto">
+            {/* Disclaimer with φ spacing */}
+            <p className="disclaimer mt-phi-4 max-w-xl mx-auto">
               Conteúdo informativo. A consulta jurídica individualizada é necessária para análise específica do seu caso.
             </p>
           </div>
         </div>
         
         {/* Decorative element */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-phi-4 bg-gradient-to-t from-background to-transparent" />
       </section>
 
-      {/* Services Section */}
-      <section className="py-16 md:py-24 bg-background" id="servicos">
+      {/* Services Section - φ grid for cards */}
+      <section 
+        className="section-phi bg-background" 
+        id="servicos"
+        data-test="phi"
+      >
         <div className="container">
-          <div className="text-center mb-12 md:mb-16">
-            <span className="inline-block px-3 py-1 mb-4 text-xs font-medium tracking-wider uppercase text-primary bg-primary/10 rounded-full">
+          <div className="text-center mb-phi-5">
+            <span className="inline-block px-phi-2 py-phi-1 mb-phi-2 text-phi-sm font-medium tracking-wider uppercase text-primary bg-primary/10 rounded-full">
               Áreas de Atuação
             </span>
-            <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-4">
+            {/* h2 uses φ (1.618rem) */}
+            <h2 className="font-display text-phi-lg md:text-phi-xl lg:text-phi-2xl font-semibold text-foreground mb-phi-2">
               Como posso ajudar você
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -110,27 +122,30 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          {/* Cards grid with φ-based gaps */}
+          <div className="grid md:grid-cols-3 gap-phi-3 lg:gap-phi-4">
             {services.map((service, index) => (
               <article
                 key={service.title}
-                className={`group bg-card rounded-xl p-6 lg:p-8 border border-border card-hover animate-fade-in-delay-${index + 1}`}
+                className={`group bg-card rounded-xl p-phi-3 lg:p-phi-4 border border-border card-hover animate-fade-in-delay-${index + 1} aspect-phi-portrait md:aspect-auto`}
+                data-test="phi"
               >
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-phi-2 group-hover:bg-primary/20 transition-colors">
                   <service.icon className="h-6 w-6 text-primary" />
                 </div>
                 
-                <h3 className="font-display text-xl font-semibold text-foreground mb-3">
+                {/* h3 uses √φ (1.272rem) */}
+                <h3 className="font-display text-phi-md font-semibold text-foreground mb-phi-1">
                   {service.title}
                 </h3>
                 
-                <p className="text-muted-foreground mb-5 leading-relaxed">
+                <p className="text-muted-foreground mb-phi-2 leading-relaxed">
                   {service.description}
                 </p>
                 
                 <Link
                   to={service.href}
-                  className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors group/link"
+                  className="inline-flex items-center gap-phi-1 text-phi-sm font-medium text-primary hover:text-primary/80 transition-colors group/link"
                 >
                   Entender meu caso
                   <ArrowRight className="h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
@@ -141,33 +156,37 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Trust Section */}
-      <section className="py-16 md:py-24 bg-muted/30">
+      {/* Trust Section - φ grid layout (0.618fr / 0.382fr) */}
+      <section 
+        className="section-phi bg-muted/30"
+        data-test="phi"
+      >
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-phi gap-phi-5 items-center">
+            {/* Major column (61.8%) */}
             <div>
-              <span className="inline-block px-3 py-1 mb-4 text-xs font-medium tracking-wider uppercase text-primary bg-primary/10 rounded-full">
+              <span className="inline-block px-phi-2 py-phi-1 mb-phi-2 text-phi-sm font-medium tracking-wider uppercase text-primary bg-primary/10 rounded-full">
                 Por que escolher
               </span>
-              <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-6">
+              <h2 className="font-display text-phi-lg md:text-phi-xl lg:text-phi-2xl font-semibold text-foreground mb-phi-3">
                 Orientação jurídica com empatia e transparência
               </h2>
-              <p className="text-muted-foreground mb-8 leading-relaxed">
+              <p className="text-muted-foreground mb-phi-4 leading-relaxed">
                 Entendo que questões previdenciárias podem ser delicadas e complexas. 
                 Por isso, meu compromisso é oferecer um atendimento acolhedor, com explicações 
                 claras e acompanhamento próximo em cada etapa do processo.
               </p>
 
-              <ul className="space-y-3">
+              <ul className="space-y-phi-1">
                 {trustIndicators.map((indicator) => (
-                  <li key={indicator} className="flex items-center gap-3">
+                  <li key={indicator} className="flex items-center gap-phi-2">
                     <CheckCircle2 className="h-5 w-5 text-secondary flex-shrink-0" />
                     <span className="text-foreground">{indicator}</span>
                   </li>
                 ))}
               </ul>
 
-              <Button variant="cta-primary" size="lg" className="mt-8" asChild>
+              <Button variant="cta-primary" size="lg" className="mt-phi-4" asChild>
                 <Link to="/sobre">
                   Conhecer o escritório
                   <ArrowRight className="h-4 w-4" />
@@ -175,19 +194,21 @@ export default function Index() {
               </Button>
             </div>
 
-            <div className="grid sm:grid-cols-3 gap-4">
+            {/* Minor column (38.2%) - differentials cards */}
+            <div className="grid gap-phi-2">
               {differentials.map((diff, index) => (
                 <div
                   key={diff.title}
-                  className={`bg-card rounded-xl p-5 border border-border text-center animate-fade-in-delay-${index + 1}`}
+                  className={`bg-card rounded-xl p-phi-3 border border-border text-center animate-fade-in-delay-${index + 1}`}
+                  data-test="phi"
                 >
-                  <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-3">
+                  <div className="w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center mx-auto mb-phi-1">
                     <diff.icon className="h-5 w-5 text-primary" />
                   </div>
-                  <h3 className="font-display text-sm font-semibold text-foreground mb-1">
+                  <h3 className="font-display text-phi-sm font-semibold text-foreground mb-phi-1">
                     {diff.title}
                   </h3>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-phi-xs text-muted-foreground">
                     {diff.description}
                   </p>
                 </div>
@@ -197,18 +218,21 @@ export default function Index() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-primary text-primary-foreground">
+      {/* CTA Section - φ proportioned */}
+      <section 
+        className="section-phi bg-primary text-primary-foreground"
+        data-test="phi"
+      >
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-semibold mb-6">
+            <h2 className="font-display text-phi-lg md:text-phi-xl lg:text-phi-2xl font-semibold mb-phi-3">
               Pronto para entender seus direitos?
             </h2>
-            <p className="text-primary-foreground/80 mb-8 text-lg">
+            <p className="text-primary-foreground/80 mb-phi-4 text-phi-md">
               Faça a triagem inicial gratuita e descubra como posso ajudar no seu caso.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-phi-2 justify-center">
               <Button 
                 variant="outline" 
                 size="xl" 
@@ -230,12 +254,15 @@ export default function Index() {
               </Button>
             </div>
 
-            <p className="mt-6 text-sm text-primary-foreground/60">
+            <p className="mt-phi-3 text-phi-sm text-primary-foreground/60">
               Atendimento 100% online • Resposta em até 48h úteis
             </p>
           </div>
         </div>
       </section>
+
+      {/* φ Validator - only in development */}
+      <PhiValidator />
     </Layout>
   );
 }
