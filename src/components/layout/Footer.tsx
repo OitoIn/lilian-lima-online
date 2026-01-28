@@ -180,7 +180,7 @@ export function Footer() {
           <p className="mt-4 text-2xs opacity-50 text-center md:text-right">
             Desenvolvido por{" "}
             <a 
-              href="https://oito.com.br" 
+              href="https://oitoin.com.br" 
               target="_blank" 
               rel="noopener noreferrer"
               className="hover:opacity-80 transition-opacity underline"
