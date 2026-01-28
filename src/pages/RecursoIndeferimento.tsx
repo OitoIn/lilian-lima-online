@@ -33,8 +33,8 @@ const comoFunciona = [
   },
   {
     icon: FileText,
-    title: "Plano de Ação Administrativo",
-    description: "Definimos a melhor estratégia: recurso, cumprimento de exigência ou novo requerimento.",
+    title: "Plano de Ação",
+    description: "Definimos a melhor estratégia: recurso administrativo, cumprimento de exigência, novo requerimento ou, se necessário, via judicial.",
   },
 ];
 
@@ -76,6 +76,10 @@ const faqItems = [
   {
     question: "O que acontece se meu recurso for negado?",
     answer: "Se o recurso administrativo for indeferido, ainda podem existir outras alternativas, como o pedido de revisão ou ações judiciais. Cada caso deve ser analisado individualmente para definir os próximos passos mais adequados.",
+  },
+  {
+    question: "O recurso pode ser judicializado?",
+    answer: "Sim. Caso as vias administrativas se esgotem ou não sejam recomendadas para o seu caso, é possível buscar a revisão da decisão do INSS através de ação judicial. Avaliamos cada situação para orientar se a judicialização é a melhor alternativa, considerando prazos, documentação disponível e particularidades do seu benefício.",
   },
 ];
 
