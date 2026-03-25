@@ -51,6 +51,8 @@ const App = () => (
             
             {/* Landing Pages */}
             <Route path="/recurso-indeferimento" element={<RecursoIndeferimento />} />
+            <Route path="/direito-trabalho" element={<DireitoTrabalho />} />
+            <Route path="/analise-trabalhista" element={<AnaliseTrabalhista />} />
             
             {/* Thank You Page */}
             <Route path="/obrigado" element={<Obrigado />} />
