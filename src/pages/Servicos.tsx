@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, FileCheck, Shield, Heart } from "lucide-react";
+import { ArrowRight, FileCheck, Shield, Heart, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout";
 
@@ -42,6 +42,19 @@ const services = [
     ],
     href: "/bpc-loas",
     cta: "Verificar elegibilidade",
+  },
+  {
+    icon: Users,
+    title: "Direito do Trabalho",
+    description: "Orientação jurídica em questões trabalhistas, com análise cuidadosa de cada situação para identificar possíveis direitos.",
+    features: [
+      "Análise de verbas rescisórias e FGTS",
+      "Questões sobre horas extras e adicionais",
+      "Vínculo empregatício e registro",
+      "Orientação sobre assédio e irregularidades",
+    ],
+    href: "/direito-trabalho",
+    cta: "Entender meu caso",
   },
 ];
 
