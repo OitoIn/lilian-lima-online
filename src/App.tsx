@@ -22,6 +22,8 @@ import Acessibilidade from "./pages/Acessibilidade";
 import TriagemBpcLoas from "./pages/TriagemBpcLoas";
 import TriagemCalculo from "./pages/TriagemCalculo";
 import RecursoIndeferimento from "./pages/RecursoIndeferimento";
+import DireitoTrabalho from "./pages/DireitoTrabalho";
+import AnaliseTrabalhista from "./pages/AnaliseTrabalhista";
 import Obrigado from "./pages/Obrigado";
 import NotFound from "./pages/NotFound";
 
@@ -49,6 +51,8 @@ const App = () => (
             
             {/* Landing Pages */}
             <Route path="/recurso-indeferimento" element={<RecursoIndeferimento />} />
+            <Route path="/direito-trabalho" element={<DireitoTrabalho />} />
+            <Route path="/analise-trabalhista" element={<AnaliseTrabalhista />} />
             
             {/* Thank You Page */}
             <Route path="/obrigado" element={<Obrigado />} />

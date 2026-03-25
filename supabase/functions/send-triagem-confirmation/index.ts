@@ -9,7 +9,7 @@ const corsHeaders = {
 };
 
 interface EmailRequest {
-  tipo: "bpc_loas" | "calculo" | "recurso";
+  tipo: "bpc_loas" | "calculo" | "recurso" | "trabalhista";
   nome: string;
   email: string;
 }
@@ -153,6 +153,56 @@ const handler = async (req: Request): Promise<Response> => {
                 • Decisão de indeferimento do INSS<br>
                 • CNIS (Extrato Previdenciário)<br>
                 • Laudos ou atestados médicos atualizados (se aplicável)
+              </p>
+            </div>
+            
+            <p style="line-height: 1.6; color: #666; font-size: 14px;">
+              Se tiver dúvidas, entre em contato conosco pelo WhatsApp ou responda este e-mail.
+            </p>
+          </div>
+          
+          <div style="background-color: #f0f0ec; padding: 16px 24px; text-align: center; font-size: 12px; color: #666;">
+            <p style="margin: 0;">
+              <strong>Lilian Lima Sociedade Individual de Advocacia</strong><br>
+              OAB/SP 425.650 | CNPJ 60.878.479/0001-95<br>
+              Rua Lutécia, 429 - Sala 4, Vila Carrão - São Paulo/SP<br>
+              WhatsApp: (11) 93205-9108 | lilianlima.sociedade@gmail.com
+            </p>
+            <p style="margin: 8px 0;">
+              Este e-mail é uma confirmação automática. Seus dados são tratados conforme nossa 
+              <a href="https://lilianlima.adv.br/privacidade" style="color: #5e6839;">Política de Privacidade</a>.
+            </p>
+            <p style="margin: 8px 0 0;">
+              Conteúdo informativo; não substitui consulta jurídica.
+            </p>
+          </div>
+        </div>
+      `;
+    } else if (tipo === "trabalhista") {
+      assunto = "Recebemos sua solicitação - Análise Trabalhista";
+      conteudo = `
+        <div style="font-family: 'Georgia', serif; max-width: 600px; margin: 0 auto; color: #333;">
+          <div style="background-color: #5e6839; padding: 24px; text-align: center;">
+            <h1 style="color: #fff; margin: 0; font-size: 24px;">Lilian Lima Advocacia</h1>
+          </div>
+          
+          <div style="padding: 32px 24px; background-color: #fafaf8;">
+            <h2 style="color: #5e6839; margin-top: 0;">Olá, ${primeiroNome}!</h2>
+            
+            <p style="line-height: 1.6;">
+              Recebemos sua solicitação para <strong>análise da sua situação trabalhista</strong>.
+            </p>
+            
+            <p style="line-height: 1.6;">
+              Nossa equipe irá avaliar as informações fornecidas e entraremos em contato em breve 
+              para orientar sobre os próximos passos.
+            </p>
+
+            <div style="background-color: #acba8f33; border-left: 4px solid #5e6839; padding: 16px; margin: 24px 0;">
+              <p style="margin: 0; font-size: 14px;">
+                <strong>Próximos passos:</strong><br>
+                Aguarde nosso contato por e-mail ou WhatsApp. Se tiver documentos trabalhistas 
+                (carteira de trabalho, contracheques, TRCT), deixe-os organizados para facilitar a análise.
               </p>
             </div>
             

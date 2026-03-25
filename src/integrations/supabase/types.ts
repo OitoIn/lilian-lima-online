@@ -293,6 +293,120 @@ export type Database = {
         }
         Relationships: []
       }
+      triagem_trabalhista: {
+        Row: {
+          cidade: string
+          consentimento_lgpd: boolean
+          consentimento_lgpd_data: string | null
+          created_at: string
+          data_problema: string
+          descricao_caso: string | null
+          email: string
+          fbclid: string | null
+          gclid: string | null
+          id: string
+          ip_address: string | null
+          nome_completo: string
+          possui_documentos: string
+          prioridade: string
+          score_descricao: number
+          score_desligamento: number
+          score_documentos: number
+          score_tentativa: number
+          score_testemunhas: number
+          score_tipo_caso: number
+          score_total: number
+          score_upload: number
+          situacao_principal: string
+          tentativa_resolucao: string | null
+          testemunhas_mensagens: string | null
+          ttclid: string | null
+          uf: string
+          updated_at: string
+          upload_documentos: boolean | null
+          user_agent: string | null
+          utm_campaign: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          vinculo_atual: string
+          whatsapp: string
+        }
+        Insert: {
+          cidade: string
+          consentimento_lgpd?: boolean
+          consentimento_lgpd_data?: string | null
+          created_at?: string
+          data_problema: string
+          descricao_caso?: string | null
+          email: string
+          fbclid?: string | null
+          gclid?: string | null
+          id?: string
+          ip_address?: string | null
+          nome_completo: string
+          possui_documentos: string
+          prioridade?: string
+          score_descricao?: number
+          score_desligamento?: number
+          score_documentos?: number
+          score_tentativa?: number
+          score_testemunhas?: number
+          score_tipo_caso?: number
+          score_total?: number
+          score_upload?: number
+          situacao_principal: string
+          tentativa_resolucao?: string | null
+          testemunhas_mensagens?: string | null
+          ttclid?: string | null
+          uf: string
+          updated_at?: string
+          upload_documentos?: boolean | null
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          vinculo_atual: string
+          whatsapp: string
+        }
+        Update: {
+          cidade?: string
+          consentimento_lgpd?: boolean
+          consentimento_lgpd_data?: string | null
+          created_at?: string
+          data_problema?: string
+          descricao_caso?: string | null
+          email?: string
+          fbclid?: string | null
+          gclid?: string | null
+          id?: string
+          ip_address?: string | null
+          nome_completo?: string
+          possui_documentos?: string
+          prioridade?: string
+          score_descricao?: number
+          score_desligamento?: number
+          score_documentos?: number
+          score_tentativa?: number
+          score_testemunhas?: number
+          score_tipo_caso?: number
+          score_total?: number
+          score_upload?: number
+          situacao_principal?: string
+          tentativa_resolucao?: string | null
+          testemunhas_mensagens?: string | null
+          ttclid?: string | null
+          uf?: string
+          updated_at?: string
+          upload_documentos?: boolean | null
+          user_agent?: string | null
+          utm_campaign?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          vinculo_atual?: string
+          whatsapp?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

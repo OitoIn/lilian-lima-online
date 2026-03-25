@@ -51,6 +51,7 @@ const footerLinks = {
     { href: "/analise-previdenciaria", label: "Análise Previdenciária" },
     { href: "/planejamento-previdenciario", label: "Planejamento Previdenciário" },
     { href: "/bpc-loas", label: "Orientação BPC/LOAS" },
+    { href: "/direito-trabalho", label: "Direito do Trabalho" },
   ],
   institucional: [
     { href: "/sobre", label: "Sobre o Escritório" },
