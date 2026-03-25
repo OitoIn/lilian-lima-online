@@ -23,6 +23,12 @@ const services = [
     description: "Auxílio especializado para pessoas com deficiência ou idosos em situação de vulnerabilidade social.",
     href: "/bpc-loas",
   },
+  {
+    icon: Users,
+    title: "Direito do Trabalho",
+    description: "Orientação jurídica em questões trabalhistas como verbas rescisórias, FGTS, horas extras e irregularidades no vínculo.",
+    href: "/direito-trabalho",
+  },
 ];
 
 const differentials = [
