@@ -175,6 +175,76 @@ export function calculateRecursoScore(data: RecursoScoreData) {
   };
 }
 
+// Scoring interno para triagem Trabalhista (0-100)
+export interface TrabalhistaScoreData {
+  possuiDocumentos: string;
+  situacaoPrincipal: string;
+  vinculoAtual: string;
+  uploadDocumentos: boolean;
+  descricaoCaso: string;
+  tentativaResolucao: string;
+  testemunhasMensagens: string;
+}
+
+export function calculateTrabalhistaScore(data: TrabalhistaScoreData) {
+  let scoreDocumentos = 0;
+  let scoreTipoCaso = 0;
+  let scoreDesligamento = 0;
+  let scoreUpload = 0;
+  let scoreDescricao = 0;
+  let scoreTentativa = 0;
+  let scoreTestemunhas = 0;
+
+  // Documentos básicos: sim +25 | parcialmente +10
+  if (data.possuiDocumentos === "sim") scoreDocumentos = 25;
+  else if (data.possuiDocumentos === "parcialmente") scoreDocumentos = 10;
+
+  // Tipo de caso com aderência documental: até +15
+  const casosAlta = ["verbas_rescisorias", "horas_extras", "fgts", "vinculo_sem_registro"];
+  const casosMedio = ["estabilidade", "adicionais", "rescisao"];
+  if (casosAlta.includes(data.situacaoPrincipal)) scoreTipoCaso = 15;
+  else if (casosMedio.includes(data.situacaoPrincipal)) scoreTipoCaso = 10;
+  else if (data.situacaoPrincipal) scoreTipoCaso = 5;
+
+  // Desligado recentemente: +15
+  if (data.vinculoAtual === "desligado_recente") scoreDesligamento = 15;
+  else if (data.vinculoAtual === "nunca_registrado") scoreDesligamento = 10;
+  else if (data.vinculoAtual === "empregado_ativo") scoreDesligamento = 5;
+
+  // Upload: +20
+  if (data.uploadDocumentos) scoreUpload = 20;
+
+  // Descrição objetiva: +10
+  if (data.descricaoCaso && data.descricaoCaso.length >= 20) scoreDescricao = 10;
+
+  // Tentativa de resolução: +5
+  if (data.tentativaResolucao === "sim" || data.tentativaResolucao === "sindicato") scoreTentativa = 5;
+
+  // Testemunhas/mensagens: sim +10 | parcialmente +5
+  if (data.testemunhasMensagens === "sim") scoreTestemunhas = 10;
+  else if (data.testemunhasMensagens === "parcialmente") scoreTestemunhas = 5;
+
+  const scoreTotal = scoreDocumentos + scoreTipoCaso + scoreDesligamento + 
+                     scoreUpload + scoreDescricao + scoreTentativa + scoreTestemunhas;
+
+  // Roteamento: ≥60 → "prioritário"; 40–59 → "analisar"; <40 → "nutrir"
+  let prioridade: "prioritario" | "analisar" | "nutrir" = "nutrir";
+  if (scoreTotal >= 60) prioridade = "prioritario";
+  else if (scoreTotal >= 40) prioridade = "analisar";
+
+  return {
+    scoreTotal,
+    scoreDocumentos,
+    scoreTipoCaso,
+    scoreDesligamento,
+    scoreUpload,
+    scoreDescricao,
+    scoreTentativa,
+    scoreTestemunhas,
+    prioridade,
+  };
+}
+
 // Helper: Calculate months since a date in MM/YYYY format
 function calculateMonthsSince(dateStr: string): number | null {
   try {
