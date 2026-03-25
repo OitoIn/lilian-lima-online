@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, FileCheck, Shield, Heart } from "lucide-react";
+import { ArrowRight, FileCheck, Shield, Heart, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout";
 
