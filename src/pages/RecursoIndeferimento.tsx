@@ -1112,7 +1112,7 @@ export default function RecursoIndeferimento() {
             <div className="inline-flex items-center gap-2 bg-card/80 backdrop-blur-sm rounded-full px-4 py-2 mb-1 border border-secondary/30">
               <Shield className="h-4 w-4 text-primary" />
               <span className="text-sm text-muted-foreground">
-                OAB/SP 425.650 • Atuação em Direito Previdenciário
+                OAB/SP 425.650 • Atuação em Direito Previdenciário e Trabalhista
               </span>
             </div>
 
