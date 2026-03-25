@@ -9,7 +9,7 @@ const corsHeaders = {
 };
 
 interface EmailRequest {
-  tipo: "bpc_loas" | "calculo" | "recurso";
+  tipo: "bpc_loas" | "calculo" | "recurso" | "trabalhista";
   nome: string;
   email: string;
 }
