@@ -22,6 +22,8 @@ import Acessibilidade from "./pages/Acessibilidade";
 import TriagemBpcLoas from "./pages/TriagemBpcLoas";
 import TriagemCalculo from "./pages/TriagemCalculo";
 import RecursoIndeferimento from "./pages/RecursoIndeferimento";
+import DireitoTrabalho from "./pages/DireitoTrabalho";
+import AnaliseTrabalhista from "./pages/AnaliseTrabalhista";
 import Obrigado from "./pages/Obrigado";
 import NotFound from "./pages/NotFound";
 
