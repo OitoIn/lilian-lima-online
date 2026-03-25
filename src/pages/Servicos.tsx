@@ -43,6 +43,19 @@ const services = [
     href: "/bpc-loas",
     cta: "Verificar elegibilidade",
   },
+  {
+    icon: Users,
+    title: "Direito do Trabalho",
+    description: "Orientação jurídica em questões trabalhistas, com análise cuidadosa de cada situação para identificar possíveis direitos.",
+    features: [
+      "Análise de verbas rescisórias e FGTS",
+      "Questões sobre horas extras e adicionais",
+      "Vínculo empregatício e registro",
+      "Orientação sobre assédio e irregularidades",
+    ],
+    href: "/direito-trabalho",
+    cta: "Entender meu caso",
+  },
 ];
 
 export default function Servicos() {

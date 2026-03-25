@@ -50,7 +50,7 @@ const differentials = [
 ];
 
 const trustIndicators = [
-  "Especialização em Direito Previdenciário",
+  "Especialização em Direito Previdenciário e Trabalhista",
   "Atendimento personalizado e acolhedor",
   "Comunicação clara e acessível",
   "Transparência em todo o processo",
